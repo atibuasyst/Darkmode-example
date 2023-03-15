@@ -2,7 +2,7 @@ name: new-version-was-release
 run-name: new-version-was-release-run-name
 on: [ push ]
 jobs:
-  job-test:
+  job-of-pushing-to-aws:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
