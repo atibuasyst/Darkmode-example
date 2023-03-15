@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&display=swap');
+
+* {
+    padding: 0rem;
+    margin: 0rem;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+nav {
+    position: sticky;
+    top: 0rem;
+    justify-content: space-between !important;
+    padding: 1rem;
+}
+
+#mode-container {
+    gap: 0.5rem;
+    border: 0.1rem solid #ddd;
+    padding: 0.5rem;
+}
+
+section {
+    height: 90%;
+}
+
+#mode-toggler {
+    cursor: pointer;
+}
