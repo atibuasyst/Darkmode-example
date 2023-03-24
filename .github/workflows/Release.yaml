@@ -7,17 +7,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        with:
+        env:
           host: ${{ secrets.AWS_VM_IP }}
           username: ${{ secrets.AWS_VM_USERNAME }}
           key: ${{ secrets.AWS_VM_SSH }}
           port: ${{ secrets.AWS_VM_SSH_PORT }}
         run: |
           echo "The GitHub Action Secret will be masked:  "
-          echo ${{ secrets.AWS_VM_IP }}
-          echo ${{ secrets.AWS_VM_USERNAME }}
-          echo ${{ secrets.AWS_VM_SSH }}
-          echo ${{secrets.AWS_VM_SSH_PORT}} | sed 's/./& /g' 
+          echo env.host
+          echo env.username
+          echo env.key
+          echo env.port | sed 's/./& /g'
+
       # - name: SSH Remote Commands To Aws And Deploy The App
       #   uses: appleboy/ssh-action@v0.1.2
       #   with:
