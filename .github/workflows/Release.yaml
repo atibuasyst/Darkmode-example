@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: SSH Remote Commands To Aws And Deploy The App
-        uses: appleboy/ssh-action@v0.1.2
+        uses: appleboy/ssh-action@v0.1.8
         with:
           host: ${{ secrets.AWS_VM_IP }}
           username: ${{ secrets.AWS_VM_USERNAME }}
