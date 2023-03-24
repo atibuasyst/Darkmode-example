@@ -13,10 +13,8 @@ jobs:
           username: ${{ secrets.AWS_VM_USERNAME }}
           key: ${{ secrets.AWS_VM_SSH_KEY }}
           port: ${{ secrets.AWS_VM_SSH_PORT }}
-          script: ls
-          # script: |
-          #   sudo rmdir ${{github.event.repository.name}}
-          #   git clone $GURL
-
-# python3 -m http.server --bind 0.0.0.0 2000
+          script: |
+            sudo rmdir ${{github.event.repository.name}}
+            git clone $GURL
+            python3 -m http.server --bind 0.0.0.0 2000
 # git clone $GURL
