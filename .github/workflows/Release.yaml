@@ -6,26 +6,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        env:
+      - name: SSH Remote Commands To Aws And Deploy The App
+        uses: appleboy/ssh-action@v0.1.2
+        with:
           host: ${{ secrets.AWS_VM_IP }}
           username: ${{ secrets.AWS_VM_USERNAME }}
           key: ${{ secrets.AWS_VM_SSH }}
           port: ${{ secrets.AWS_VM_SSH_PORT }}
-        if:  env.username == 'ubuntu1'
-        run: echo "I know what the username secret."
-
-      # - name: SSH Remote Commands To Aws And Deploy The App
-      #   uses: appleboy/ssh-action@v0.1.2
-      #   with:
-      #     host: ${{ secrets.AWS_VM_IP }}
-      #     username: ${{ secrets.AWS_VM_USERNAME }}
-      #     key: ${{ secrets.AWS_VM_SSH }}
-      #     port: ${{ secrets.AWS_VM_SSH_PORT }}
-      #     script: whoami
-          # script: |
-          #   sudo rmdir ${{github.event.repository.name}}
-          #   git clone $GURL
+          script: whoami
+          script: |
+            sudo rmdir ${{github.event.repository.name}}
+            git clone $GURL
 
 # python3 -m http.server --bind 0.0.0.0 2000
 # git clone $GURL
