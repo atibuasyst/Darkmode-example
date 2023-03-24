@@ -12,7 +12,7 @@ jobs:
           username: ${{ secrets.AWS_VM_USERNAME }}
           key: ${{ secrets.AWS_VM_SSH }}
           port: ${{ secrets.AWS_VM_SSH_PORT }}
-        if:  env.username == 'ubuntu'
+        if:  env.username == 'ubuntu1'
         run: echo "I know what the username secret."
 
       # - name: SSH Remote Commands To Aws And Deploy The App
